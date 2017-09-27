@@ -1,3 +1,5 @@
+import static jdk.nashorn.internal.objects.NativeRegExp.compile
+
 buildscript {
     repositories {
         mavenLocal()
@@ -23,9 +25,15 @@ apply plugin:"org.grails.grails-gsp"
 repositories {
     mavenLocal()
     maven { url "https://repo.grails.org/grails/core" }
+    maven { url "https://repo.grails.org/grails/plugins" }
+
+
 }
 
+
+
 dependencies {
+    compile 'com.google.firebase:firebase-admin:5.0.1'
     compile "org.springframework.boot:spring-boot-starter-logging"
     compile "org.springframework.boot:spring-boot-autoconfigure"
     compile "org.grails:grails-core"
