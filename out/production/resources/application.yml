@@ -13,9 +13,9 @@ grails:
             events: false
 info:
     app:
-        name: '@info.app.name@'
-        version: '@info.app.version@'
-        grailsVersion: '@info.app.grailsVersion@'
+        name: 'PillServer'
+        version: '0.1'
+        grailsVersion: '3.3.1'
 spring:
     main:
         banner-mode: "off"
@@ -81,6 +81,10 @@ grails:
                 scriptlets: html
                 taglib: none
                 staticparts: none
+
+
+
+
 endpoints:
     jmx:
         unique-names: true
@@ -97,6 +101,15 @@ dataSource:
     driverClassName: org.h2.Driver
     username: sa
     password: ''
+
+grails:
+    mongodb:
+        host: "localhost"
+        port: 27017
+        username: "pastilleroUser"
+        password: "12345"
+        databaseName: "pastillero"
+
 
 environments:
     development:
@@ -129,3 +142,4 @@ environments:
                 testOnReturn: false
                 jdbcInterceptors: ConnectionState
                 defaultTransactionIsolation: 2 # TRANSACTION_READ_COMMITTED
+

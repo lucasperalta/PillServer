@@ -102,6 +102,15 @@ dataSource:
     username: sa
     password: ''
 
+grails:
+    mongodb:
+        host: "localhost"
+        port: 27017
+        username: "pastillero"
+        password: "12345"
+        databaseName: "pastillero"
+
+
 environments:
     development:
         dataSource:

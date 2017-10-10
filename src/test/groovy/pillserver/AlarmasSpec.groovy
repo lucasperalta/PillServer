@@ -1,9 +1,9 @@
 package pillserver
 
-import grails.testing.web.controllers.ControllerUnitTest
+import grails.testing.gorm.DomainUnitTest
 import spock.lang.Specification
 
-class FirebaseAddControllerSpec extends Specification implements ControllerUnitTest<FirebaseAddController> {
+class AlarmasSpec extends Specification implements DomainUnitTest<Alarmas> {
 
     def setup() {
     }
