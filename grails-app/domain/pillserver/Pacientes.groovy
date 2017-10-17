@@ -1,16 +1,20 @@
 package pillserver
 
-class Pacientes {\
-    String id
+import org.bson.types.ObjectId
+
+class Pacientes {
+    ObjectId id
     String paciente
     String medico
-    List alarmas
 
+    List<Alarmas> alarmas
+    static embedded = ['alarmas']
 
 
     static mapping = {
         collection "Pacientes"
         database "pastillero"
+
     }
 
     static constraints = {
