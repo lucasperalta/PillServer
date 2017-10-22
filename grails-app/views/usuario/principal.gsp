@@ -19,54 +19,36 @@
 <body>
   <!--Google Font - Work Sans-->
 <link href='https://fonts.googleapis.com/css?family=Work+Sans:400,300,700' rel='stylesheet' type='text/css'>
-<div id='cssmenu'>
-<ul>
-   <li><a href='#'><span>Pacientes</span></a></li>
-   <li class='active has-sub'><a href='#'><span>Products</span></a>
-      <ul>
-         <li class='has-sub'><a href='#'><span>Product 1</span></a>
-            <ul>
-               <li><a href='#'><span>Sub Product</span></a></li>
-               <li class='last'><a href='#'><span>Sub Product</span></a></li>
-            </ul>
-         </li>
-         <li class='has-sub'><a href='#'><span>Product 2</span></a>
-            <ul>
-               <li><a href='#'><span>Sub Product</span></a></li>
-               <li class='last'><a href='#'><span>Sub Product</span></a></li>
-            </ul>
-         </li>
-      </ul>
-   </li>
-     <!--<li><a href='#'><span>About</span></a></li>
-   <li class='last'><a href='#'><span>Contact</span></a></li>-->
-   <p class='nombre'><span>PastillApp</span></p>
-</ul>
- 
-</div>
-
-
 <div class="container">
-
-  
   <div class="menu">
     <button class="menu__avatar" id="menuInicio">
-     <img src="https://pbs.twimg.com/profile_images/554631714970955776/uzPxPPtr.jpeg" alt="Agregar Pastilla" /> 
+        <g:img dir="images" file="mas.png" width="40" height="40"/>
     </button>
     <div class="menu__form">
+        <g:form class="simpleform" style="50%;" action="alta" controller="usuario">
       <div class="menu__fields">
-        <div class="field">
-         <label for="pastilla">Pastilla</label>
-          <input type="text" id="fieldUser" class="input" required pattern=.*\S.* />
+
+          <div class="field">
+         <label for="alarma">Pastilla</label>
+          <input type="text" id="pastilla" name="pastilla" class="input" required pattern=.*\S.* />
         </div>
-        <div class="field">
-         <label for="alarma">Alarma</label>
-          <input type="text" id="fieldPassword" class="input" required pattern=.*\S.* />
-        </div>
+          <div class="field">
+              <label for="alarma">Hora</label>
+              <input type="text" id="hora" name="hora" class="input" required pattern=.*\S.* />
+          </div>
+          <div class="field">
+              <label for="alarma">Minutos</label>
+              <input type="text" id="minutos" name="minutos" class="input" required pattern=.*\S.* />
+          </div>
+          <div class="field">
+              <label for="alarma">Dias de la semana</label>
+              <input type="text" id="dias" name="dias" class="input" required pattern=.*\S.* />
+          </div>
         <div class="menu__footer">
           <button class="btn">Agregar</button>
         </div>
       </div>
+        </g:form>
      </div>
   </div>
   
@@ -74,22 +56,18 @@
   <table class="table table-hover">
     <thead>
 
-
-
-
     </thead>
     <tbody>
     <g:each in="${pacientes}" var="pacienteVar">
         <tr>
-        <td>Paciente: ${pacienteVar.paciente}</td>
-         <table class="table table-hover">
+            <a id="menuInicio">Paciente: ${pacienteVar.paciente}</a>
+            <table class="table table-hover">
         <thead>
 
             <th>Alarma</th>
             <th>hora</th>
             <th>minutos</th>
             <th>diaDeSemana</th>
-
 
         </thead>
         <tbody>
@@ -112,6 +90,8 @@
 </div>
 
 <asset:javascript src="index.js"/>
+<asset:javascript src="menu.js"/>
+<asset:javascript src="muestravalor.js"/>
 
 </body>
 </html>

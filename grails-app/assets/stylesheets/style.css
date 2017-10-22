@@ -112,14 +112,14 @@ label{
   height: auto;
   opacity: 1;
   transform: translateY(-3em);
-  padding-top: 6em;
+  padding-top: 40em;
 }
 .menu--open .menu__fields {
   opacity: 1;
   visibility: visible;
 }
 .menu--open .menu__avatar {
-  transform: translate(-5%, -1.5em);
+  transform: translate(-1%, -1.5em);
   border-radius: 50%;
 }
 .menu__form {
@@ -147,7 +147,7 @@ label{
   position: absolute;
   z-index: 1;
   left: 50%;
-  transform: translateX(-30%);
+  transform: translateX(-1%);
   border-radius: 1.25em;
   overflow: hidden;
   width: 4.5em;

@@ -42,11 +42,11 @@ class UsuarioController {
         System.out.println(params.paciente)
         Usuarios user =session.getAttribute("user")
         Alarmas alarma = new Alarmas()
-        alarma.setNombre("mejoralin")
-        alarma.setHora("24")
-        alarma.setMinutos("30")
-        alarma.setDiaDeSemana("1,2,6")
-        usuarioService.alta(user,alarma,"Romeo")
+        alarma.setNombre(params.pastilla)
+        alarma.setHora(params.hora)
+        alarma.setMinutos(params.minutos)
+        alarma.setDiaDeSemana(params.dias)
+        usuarioService.alta(user,alarma,params.paciente)
 
         redirect(action: "login",  params: [username: user.getUsuario(),password:user.getPassword()])
 
