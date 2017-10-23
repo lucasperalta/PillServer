@@ -5,7 +5,6 @@
   <title>Elastic Login Form</title>
 
 
-    <asset:stylesheet src="style.css"/>
     <asset:stylesheet src="bootstrap.css"/>
     <asset:stylesheet src="bootstrap-theme.min.css"/>
 
@@ -17,50 +16,67 @@
 
 </head>
 <body>
-  <!--Google Font - Work Sans-->
-<link href='https://fonts.googleapis.com/css?family=Work+Sans:400,300,700' rel='stylesheet' type='text/css'>
-<div class="container">
-  <div class="menu">
-    <button class="menu__avatar" id="menuInicio">
-        <g:img dir="images" file="mas.png" width="40" height="40"/>
-    </button>
-    <div class="menu__form">
-        <g:form class="simpleform" style="50%;" action="alta" controller="usuario">
-      <div class="menu__fields">
 
-          <div class="field">
-         <label for="alarma">Pastilla</label>
-          <input type="text" id="pastilla" name="pastilla" class="input" required pattern=.*\S.* />
+
+
+
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title" id="modalHeader">Modal Header</h4>
+                </div>
+                <div class="modal-body">
+                    <g:form class="simpleform" style="50%;" action="alta" controller="usuario">
+                        <div class="menu__fields">
+                            <input type="hidden" id="paciente" name="paciente" value="" />
+
+                            <div class="field">
+                                <label for="alarma">Pastilla</label>
+                                <input type="text" id="pastilla" name="pastilla" class="input" required pattern=.*\S.* />
+                            </div>
+                            <div class="field">
+                                <label for="alarma">Hora</label>
+                                <input type="text" id="hora" name="hora" class="input" required pattern=.*\S.* />
+                            </div>
+                            <div class="field">
+                                <label for="alarma">Minutos</label>
+                                <input type="text" id="minutos" name="minutos" class="input" required pattern=.*\S.* />
+                            </div>
+                            <div class="field">
+                                <label for="alarma">Dias de la semana</label>
+                                <input type="text" id="dias" name="dias" class="input" required pattern=.*\S.* />
+                            </div>
+                            <div class="menu__footer">
+                                <button class="btn">Agregar</button>
+                            </div>
+                        </div>
+                    </g:form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
         </div>
-          <div class="field">
-              <label for="alarma">Hora</label>
-              <input type="text" id="hora" name="hora" class="input" required pattern=.*\S.* />
-          </div>
-          <div class="field">
-              <label for="alarma">Minutos</label>
-              <input type="text" id="minutos" name="minutos" class="input" required pattern=.*\S.* />
-          </div>
-          <div class="field">
-              <label for="alarma">Dias de la semana</label>
-              <input type="text" id="dias" name="dias" class="input" required pattern=.*\S.* />
-          </div>
-        <div class="menu__footer">
-          <button class="btn">Agregar</button>
-        </div>
-      </div>
-        </g:form>
-     </div>
-  </div>
-  
+    </div>
+
+
+
+
+
   <h2>Pacientes</h2>
-  <table class="table table-hover">
+  <table class="table table-striped">
     <thead>
 
     </thead>
     <tbody>
     <g:each in="${pacientes}" var="pacienteVar">
         <tr>
-            <a id="menuInicio">Paciente: ${pacienteVar.paciente}</a>
+            <a id="pacienteNombreId"      onclick="loadPaciente('${pacienteVar.paciente}')" >Paciente: ${pacienteVar.paciente}</a>
             <table class="table table-hover">
         <thead>
 
@@ -89,9 +105,20 @@
   </table>
 </div>
 
-<asset:javascript src="index.js"/>
-<asset:javascript src="menu.js"/>
-<asset:javascript src="muestravalor.js"/>
+
+
+
+<script>
+
+
+    function loadPaciente(nombre){
+        $("#paciente").val(nombre);
+        $("#modalHeader").text(nombre);
+
+        $("#myModal").modal();
+    }
+
+</script>
 
 </body>
 </html>

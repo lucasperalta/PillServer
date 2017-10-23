@@ -13,8 +13,11 @@ class UsuarioController {
         System.out.println(params.username)
             System.out.println(params.password)
 
+        def usuario= session.getAttribute("user")
+        if(usuario==null){
+            usuario = Usuarios.findByUsuarioAndPassword(params.username,params.password)
 
-        def usuario = Usuarios.findByUsuarioAndPassword(params.username,params.password)
+        }
         if (usuario!=null){
             session.setAttribute("user",usuario)
            def pacientes= Pacientes.findAllByMedico(usuario.getUsuario())
@@ -30,9 +33,9 @@ class UsuarioController {
 
     //para el json de android
     def user(){
-        System.out.println(params.username)
+        System.out.println(params.id)
 
-        def paciente = Pacientes.findByPaciente(params.paciente)
+        def paciente = Pacientes.findByPaciente(params.id)
          respond paciente, formats: [ 'json']
 
 
@@ -47,8 +50,8 @@ class UsuarioController {
         alarma.setMinutos(params.minutos)
         alarma.setDiaDeSemana(params.dias)
         usuarioService.alta(user,alarma,params.paciente)
-
-        redirect(action: "login",  params: [username: user.getUsuario(),password:user.getPassword()])
+        forward action:'login'
+      //  redirect(action: "login",  params: [username: user.getUsuario(),password:user.getPassword()])
 
 
 
