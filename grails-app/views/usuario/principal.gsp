@@ -2,11 +2,12 @@
 <html >
 <head>
   <meta charset="UTF-8">
-  <title>Elastic Login Form</title>
+  <title>PastillApp</title>
 
 
     <asset:stylesheet src="bootstrap.css"/>
     <asset:stylesheet src="bootstrap-theme.min.css"/>
+    <asset:stylesheet src="styleprincipal.css"/>
 
 
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -81,9 +82,9 @@
         <thead>
 
             <th>Alarma</th>
-            <th>hora</th>
-            <th>minutos</th>
-            <th>diaDeSemana</th>
+            <th>Hora</th>
+            <th>Minutos</th>
+            <th>Dia De Semana</th>
 
         </thead>
         <tbody>
